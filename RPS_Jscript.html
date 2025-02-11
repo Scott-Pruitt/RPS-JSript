@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS_JScript</title>
+</head>
+<body>
+    <script>
+        function getUserInput(){
+            const userChoice = prompt("Enter your choice (rock, paper, or scissors):");
+            if(!["ROCK", "PAPER", "SCISSORS"].includes(userChoice)){
+                alert("Invalid choice. Please enter rock, paper, or scissors.");
+                return getUserInput();
+            }
+            return userChoice.toUpperCase();
+        }
+        function getCompInput(){
+            const choices = ["ROCK", "PAPER", "SCISSORS"];
+            return choices[Math.floor(Math.random() * choices.length)];
+        }
+        function determineWinner(user, comp){
+            if(user === comp){
+                return "It's a tie!";
+            }
+            else if((user === "ROCK" && comp === "SCISSORS") ||
+                    (user === "PAPER" && comp === "ROCK") ||
+                    (user === "SCISSORS" && comp === "PAPER")){
+                return "User wins!";
+            }
+            else{
+                return "Computer wins!";
+            }
+        }
+        console.log("Start");
+        console.log(getUserInput());
+        console.log(getCompInput());
+        console.log(determineWinner(getUserInput(), getCompInput()));
+        console.log("End");
+    </script>
+</body>
+</html>

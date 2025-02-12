@@ -8,12 +8,19 @@
 <body>
     <script>
         function getUserInput(){
-            const userChoice = prompt("Enter your choice (rock, paper, or scissors):");
+            let userChoice = prompt("Enter your choice (rock, paper, or scissors):");
+            if (userChoice === null){
+                alert("Invalid choice. Please enter rock, paper, or scissors.");
+                return getUserInput();
+            } else {
+                userChoice = userChoice.toUpperCase();
+            }
+        
             if(!["ROCK", "PAPER", "SCISSORS"].includes(userChoice)){
                 alert("Invalid choice. Please enter rock, paper, or scissors.");
                 return getUserInput();
             }
-            return userChoice.toUpperCase();
+            return userChoice;
         }
         function getCompInput(){
             const choices = ["ROCK", "PAPER", "SCISSORS"];
@@ -32,11 +39,14 @@
                 return "Computer wins!";
             }
         }
+
+    for( let i=0; i <5; i++){
         console.log("Start");
-        console.log(getUserInput());
-        console.log(getCompInput());
-        console.log(determineWinner(getUserInput(), getCompInput()));
+        console.log(userPick = getUserInput());
+        console.log(compPick = getCompInput());
+        console.log(determineWinner(userPick, compPick));
         console.log("End");
+    }
     </script>
 </body>
 </html>

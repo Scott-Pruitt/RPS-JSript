@@ -3,50 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="RPS_revisited.js" defer></script>
     <title>RPS_JScript</title>
 </head>
 <body>
-    <script>
-        function getUserInput(){
-            let userChoice = prompt("Enter your choice (rock, paper, or scissors):");
-            if (userChoice === null){
-                alert("Invalid choice. Please enter rock, paper, or scissors.");
-                return getUserInput();
-            } else {
-                userChoice = userChoice.toUpperCase();
-            }
-        
-            if(!["ROCK", "PAPER", "SCISSORS"].includes(userChoice)){
-                alert("Invalid choice. Please enter rock, paper, or scissors.");
-                return getUserInput();
-            }
-            return userChoice;
-        }
-        function getCompInput(){
-            const choices = ["ROCK", "PAPER", "SCISSORS"];
-            return choices[Math.floor(Math.random() * choices.length)];
-        }
-        function determineWinner(user, comp){
-            if(user === comp){
-                return "It's a tie!";
-            }
-            else if((user === "ROCK" && comp === "SCISSORS") ||
-                    (user === "PAPER" && comp === "ROCK") ||
-                    (user === "SCISSORS" && comp === "PAPER")){
-                return "User wins!";
-            }
-            else{
-                return "Computer wins!";
-            }
-        }
-
-    for( let i=0; i <5; i++){
-        console.log("Start");
-        console.log(userPick = getUserInput());
-        console.log(compPick = getCompInput());
-        console.log(determineWinner(userPick, compPick));
-        console.log("End");
-    }
-    </script>
+    <div id="main_container">
+        <h1>Rock, Paper, Scissors Game</h1>
+        <div id="player_score">Player Score: 0</div>
+        <div id="computer_score">Computer Score: 0</div>
+        <div id="choices">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div id="result"></div>
+        <button id="reset_button">Reset</button>
+    </div>
 </body>
 </html>
